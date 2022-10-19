@@ -40,4 +40,40 @@ router.get('/student-details/:name', function(req, res){
     res.send('Dummy response')
 })
 
+
+
+// -write an api which gives the missing number in an array 
+
+router.get("/sol1", function (req, res) {
+let array=[1,2,3,5,6,7]
+let n=array.length+1 
+let sumOfnaturalNumber =n*(n+1)/2
+let sumOfarray=0
+for(let i=0;i<array.length;i++){
+    let element = array[i]
+    sumOfarray+=element
+}
+let result = sumOfnaturalNumber-sumOfarray
+res.send( {  missingNumber: result } );
+});
+
+
+// -write an api which gives the missing number in an array of integers starting from anywhere
+
+router.get("/sol2", function (req, res) {
+
+let arr= [33, 34, 35, 37, 38]
+let n=arr.length+1 
+let sumOfnaturalNumber =n*(33+38)/2  //logic : sum of n consecutive numbers is [ n * (first + last) / 2 ]..so get sum of all
+let sumOfarray=0
+for(let i=0;i<arr.length;i++){
+    let element = arr[i]
+    sumOfarray+=element
+}
+let result = sumOfnaturalNumber-sumOfarray
+res.send( { missingNumber: result } );
+});
+
+
+
 module.exports = router;
